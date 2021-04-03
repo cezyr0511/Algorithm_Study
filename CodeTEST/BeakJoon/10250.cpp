@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -9,7 +10,8 @@ int main(int argc, char* argv[])
 
 	cin >> testcase;
 
-	while (testcase--) {
+	while (testcase--) 
+	{
 		cin >> h;
 		cin >> w;
 		cin >> n;
@@ -17,10 +19,13 @@ int main(int argc, char* argv[])
 		x = n % h;
 		y = n / h + 1;
 
-		if (x == 0) {
+		if (x == 0) 
+		{
 			x = h;
 		}
-		if (!(n % h)) {
+
+		if (!(n % h)) 
+		{
 			y -= 1;
 		}
 
