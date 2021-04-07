@@ -28,10 +28,16 @@ int main()
 
 	// num1, num2 배열을 만드는 과정
 	for (int i = 0; i < s1.size(); i++)
+	{
 		num1[i + 1] = s1[i] - '0';
+	}
+		
 
 	for (int i = 0; i < s2.size(); i++)
+	{
 		num2[i + 1 + (s1.size() - s2.size())] = s2[i] - '0';
+	}
+		
 
 	// num배열들의 끝부분부터 덧셈을 하면서 ans벡터에 값 저장
 	for (int i = s1.size(); i > 0; i--)
@@ -46,7 +52,8 @@ int main()
 	}
 
 	// 맨 앞자리수 출력
-	if (num1[0] != 0) cout << 1;
+	if (num1[0] != 0) 
+		cout << 1;
 
 	// ans벡터 거꾸로 출력
 	for (int i = ans.size() - 1; i >= 0; i--)
