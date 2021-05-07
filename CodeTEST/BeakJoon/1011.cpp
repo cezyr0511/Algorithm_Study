@@ -1,44 +1,61 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
-// 0 3
-// 1  2  1
-// 1 5
+// 이동거리  작동 횟수
+//  1			1
+//  2			2
+//  3			3
+//  4			3
+//	5			4
+//	6			4
+//	7			5
+//	8			5
+//	9			5
+//	10			6
 
 
 int main()
 {
-	int T, X, Y;	
+	int T;	
 
-	cin >> T;
+	cin >> T;	
 
-	int* Arry = new int[T];		
+	int* Re = new int[T];
 
+	//0 1 2
 	for (int i = 0; i < T; i++)
 	{
-		cin >> X;
-		cin >> Y;
+		long long X, Y;
+		long long move, max = 0;
 
-		if (X == 0)
-		{
-			Arry[i] = Y;
-		}
-		else
-		{
-			Arry[i] = Y - X - 1;
-		}
+		cin >> X >> Y;
 
-		//cout << Arry[i] << endl;
+		while (max * max <= Y - X)
+		{
+			max++;
+		}
 		
+		max--;
+
+		move = 2 * max - 1;
+
+		long long rem = Y - X - max * max;
+
+		rem = (long long)ceil((double)rem / (double)max);
+
+		move += rem;
+		
+		Re[i] = move;		
 	}
 
 	for (int i = 0; i < T; i++)
 	{
-		cout << Arry[i] << endl;
+		cout << Re[i] << endl;
 	}
 
-	delete[] Arry;
+	delete[] Re;
 
 	return 0;
 }
