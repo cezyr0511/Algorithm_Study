@@ -6,6 +6,8 @@ int main()
 {
 	int n;	
 	int Sum = 0;
+	int Temp = 0;
+	bool Decimal = true;
 
 	cin >> n;
 
@@ -22,10 +24,31 @@ int main()
 		{
 			Sum++;
 		}
-		else if (A[i] != 1 && A[i] % 2 != 0)
+		else if (A[i] != 1)
 		{
-			Sum++;
+			Temp = A[i];
+
+			for (int j = 2; j < A[i]; j++)
+			{
+				if (A[i] % j == 0)
+				{
+					Decimal = false;
+				}
+			}		
+
+			if (Decimal)
+			{
+				Sum++;
+			}
+			else
+			{
+				Decimal = true;
+			}
+			
 		}
+
+		
+		
 	}
 	
 	cout << Sum << endl;
