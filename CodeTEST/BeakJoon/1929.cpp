@@ -1,41 +1,38 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
-// 2 3 5 7
+const int MAX = 10000000;
 
-int main()
+int map[MAX + 1];
+
+int main(void)
 {
-	int M, N;
+	int Min, Max;	
 
-	cin >> M >> N;	
+	cin >> Min >> Max;	
 
-	vector<int> T;
-
-	int Index = 0;
-	for (int i = M; i <= N; i++)
+	for (int i = Min; i <= Max; i++)
 	{
-		T.push_back(i);
-	}	
-
-	for (int i = 2; i <= sqrt(N); i++)
-	{
-		if (T[i] == 0)
-			continue;
-		
-		for (int j = i * i; j <= N; j += i)
-			T[j] = 0;
+		map[i] = i;
 	}
 
-	for (int i = 0; i < T.size(); i++)
+	map[1] = 0;	
+
+	for (int i = 2; i <= sqrt(Max); i++)
 	{
-		if (T[i] != 0)
+		for (int j = i + i; j <= Max; j += i)
 		{
-			cout << T[i] << endl;
+			map[j] = 0;
 		}
-		
+	}
+
+	for (int i = Min; i <= Max; i++)
+	{
+		if (map[i] != 0)
+			printf("%d\n", i);
 	}
 
 	return 0;
-
 }
