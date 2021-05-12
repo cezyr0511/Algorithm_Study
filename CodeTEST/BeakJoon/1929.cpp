@@ -9,16 +9,16 @@ int map[MAX + 1];
 
 int main(void)
 {
-	int Min, Max;	
+	int Min, Max;
 
-	cin >> Min >> Max;	
+	cin >> Min >> Max;
 
 	for (int i = Min; i <= Max; i++)
 	{
 		map[i] = i;
 	}
 
-	map[1] = 0;	
+	map[1] = 0;
 
 	for (int i = 2; i <= sqrt(Max); i++)
 	{
